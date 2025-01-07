@@ -8,7 +8,6 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      <home-manager/nixos>       
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -33,9 +32,6 @@
 
   # Enable Flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # Enable Allow Unfree Packages
-  nixpkgs.config.allowUnfree = true;
 
   # Set your time zone.
   time.timeZone = "Asia/Tokyo";
@@ -103,6 +99,9 @@
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = true;
 
+  # Enable allow Unfree pkgs
+  nixpkgs.config.allowUnfree = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.nusk = {
     isNormalUser = true;
@@ -131,7 +130,6 @@
     wget wirelesstools wpa_supplicant
     zip unzip usbutils tree
     gcc cl clang zig
-    bc
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
