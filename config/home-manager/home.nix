@@ -18,7 +18,7 @@
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -35,12 +35,17 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    pkgs.vscode
-    pkgs.bc
-    pkgs.cowsay
-    pkgs.discord
-    pkgs.texliveFull
-    pkgs.gh
+
+    # Develop Apps
+    vscode
+    discord
+    gh
+
+    # misc
+    file
+    bc
+    cowsay
+    texliveFull
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
@@ -76,6 +81,13 @@
   #
   home.sessionVariables = {
     EDITOR = "vim";
+  };
+
+  # Git configuration
+  programs.git = {
+      enable = true;
+      userName = "Nusk-Rbb";
+      userEmail = "nuskrbb1741dn@gmail.com";
   };
 
   # Let Home Manager install and manage itself.
