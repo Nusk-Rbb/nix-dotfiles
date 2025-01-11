@@ -13,6 +13,7 @@ alias ec "nvim ~/.config/fish/config.fish"
 alias sc "source /home/nusk/.config/fish/config.fish"
 alias eh "nvim ~/.config/home-manager/home.nix"
 alias hs "home-manager switch"
+alias hm home-manager
 alias ip="ip -c"
 alias nv=nvim
 
