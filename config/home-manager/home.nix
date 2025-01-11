@@ -36,8 +36,11 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 
+    # Desktop Apps
+    onlyoffice-bin
+
     # Develop Apps
-    vscode
+    unstable.vscode
     discord
     gh
 
@@ -46,8 +49,29 @@
     bc
     cowsay
     texliveFull
+    fzf
   ];
 
+  # Neovim environment
+  # home.nix
+  programs.neovim = {
+    enable = true;
+    extraPackages = with pkgs; [
+      # Formatters
+      gofumpt
+      goimports-reviser
+      golines
+  
+      # LSP
+      gopls
+  
+      # Tools
+      go
+      gcc
+    ];
+  };
+
+  
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
