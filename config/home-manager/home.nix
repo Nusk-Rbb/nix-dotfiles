@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
 
+let
+  unstable = import <nixos-unstable> { config.allowUnfree = true; };
+in
+
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -37,7 +41,7 @@
     # '')
 
     # Desktop Apps
-    onlyoffice-bin
+    #onlyoffice-bin
 
     # Develop Apps
     unstable.vscode
