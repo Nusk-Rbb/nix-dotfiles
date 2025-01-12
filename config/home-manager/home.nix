@@ -41,7 +41,7 @@ in
     # '')
 
     # Desktop Apps
-    #onlyoffice-bin
+    onlyoffice-bin
 
     # Develop Apps
     unstable.vscode
