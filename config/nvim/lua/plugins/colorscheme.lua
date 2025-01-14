@@ -6,10 +6,6 @@ return {
 
   { "olivercederborg/poimandres.nvim" },
 
-  { "rebelot/kanagawa.nvim" },
-
-  { "nyoom-engineering/nyoom.nvim" },
-
   {
     "uloco/bluloco.nvim",
     lazy = false,
@@ -17,16 +13,13 @@ return {
     dependencies = { "rktjmp/lush.nvim" },
   },
 
-  {
-    "hwadii/gruber_darker.nvim",
-    dependencies = { "rktjmp/lush.nvim" },
-  },
+  { "mellow-theme/mellow.nvim" },
 
   -- Configure LazyVim to load catppuccin
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "gruber_darker",
+      colorscheme = "mellow",
     },
   },
 }
