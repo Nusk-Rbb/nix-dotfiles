@@ -4,22 +4,17 @@
     home.stateVersion = "24.11";
     imports = [
         # gui
-        ./firefox
-        ./foot
-        ./eww
-        ./dunst
-        ./hyprland
-        ./wofi
+        ./google-chrome
 
         # cli
         ./nvim
-        ./zsh
+        ./fish
         ./git
-        ./gpg
         ./direnv
+        ./gh
 
         # system
-        ./xdg
+        ./kde
 	    ./packages
     ];
 }

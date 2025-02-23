@@ -42,6 +42,7 @@ in
 
     # Desktop Apps
     onlyoffice-bin
+    obsidian
 
     # Develop Apps
     unstable.vscode
