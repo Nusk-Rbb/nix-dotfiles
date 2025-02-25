@@ -10,11 +10,9 @@
         ./nvim
         ./fish
         ./git
-        ./direnv
         ./gh
 
         # system
-        ./kde
 	    ./packages
     ];
 }

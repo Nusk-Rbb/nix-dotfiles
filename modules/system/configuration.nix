@@ -38,6 +38,22 @@
         ];
     };
 
+    # Nix settings, auto cleanup and enable flakes
+    nix = {
+        settings.auto-optimise-store = true;
+        settings.allowed-users = [ "nusk" ];
+        gc = {
+            automatic = true;
+            dates = "weekly";
+            options = "--delete-older-than 7d";
+        };
+        extraOptions = ''
+            experimental-features = nix-command flakes
+            keep-outputs = true
+            keep-derivations = true
+        '';
+    };
+
     # Set up user and enable sudo
     users.users.nusk = {
         isNormalUser = true;
@@ -45,10 +61,8 @@
         shell = pkgs.fish;
     };
 
-    # Set up networking and secure it
-    networking = {
-        wireless.iwd.enable = true;
-    };
+    # Set up Network
+    services.networkmanager.enable = true;
 
     # Sound
     sound = {
