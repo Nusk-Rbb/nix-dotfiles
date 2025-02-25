@@ -8,7 +8,11 @@
 
     # Laptop-specific packages (the other ones are installed in `packages.nix`)
     environment.systemPackages = with pkgs; [
-        git
+        git curl beep 
+        gnupg htop lsof 
+        lsscsi vim wget 
+        wirelesstools wpa_supplicant
+        zip unzip usbutils tree
     ];
 
     # Install fonts
