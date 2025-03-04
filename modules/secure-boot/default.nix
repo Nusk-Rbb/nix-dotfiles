@@ -5,17 +5,28 @@ let
     cfg = config.modules.secure-boot;
     sources = import ./nix/sources.nix;
     lanzaboote = import sources.lanzaboote;
-    unstable = import <nixos-unstable> { config = { allowUnfree = true; }; };
 in {
     options.modules.secure-boot = { enable = mkEnableOption "secure-boot"; };
+    imports =
+        [ # Include the results of the hardware scan.
+            lanzaboote.nixosModules.lanzaboote
+        ];
     config = mkIf cfg.enable {
-        # Use the systemd-boot EFI boot loader.
-        boot.loader.grub = {
+
+        # Lanzaboote currently replaces the systemd-boot module.
+        # This setting is usually set to true in configuration.nix
+        # generated at installation time. So we force it to false
+        # for now.
+        boot.loader.systemd-boot.enable = lib.mkForce false;
+        #boot.loader.systemd-boot.enable = true;
+        boot.loader.efi = {
+            canTouchEfiVariables = true;
+            efiSysMountPoint = "/boot";
+        };
+
+        boot.lanzaboote = {
             enable = true;
-            device = "nodev";
-            efiSupport = true;
-            useOSProber = true;
-        };    
-        boot.loader.efi.canTouchEfiVariables = true;
+            pkiBundle = "/var/lib/sbctl";
+        };
     };
 }
