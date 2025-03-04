@@ -3,6 +3,9 @@
 {
     imports = [ ../../modules/default.nix ];
     config.modules = {
+        # boot
+        secure-boot.enable = true;
+
         # gui
         google-chrome.enable = true;
 
